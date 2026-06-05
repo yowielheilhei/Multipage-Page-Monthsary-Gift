@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // 1. Updated to include the background video tag at the top
     const navHTML = `
         <video class="yunky-bg-video" autoplay loop muted playsinline>
-            <source src="assets/videos/bg.webm" type="video/webm">
+            <source src="assets/videos/bgst1.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
 

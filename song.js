@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Alipin", artist: "Yowie", cover: "assets/images/song/album cover.jfif", src: "assets/audio/alipin.mp3" },
         { title: "Araw araw", artist: "Yowie", cover: "assets/images/song/album cover.jfif", src: "assets/audio/arawaraw.mp3" },
         { title: "Ikaw at Ako", artist: "Yowie", cover: "assets/images/song/album cover.jfif", src: "assets/audio/ikawatako.mp3" },
+        { title: "Janice", artist: "Yowie", cover: "assets/images/song/album cover.jfif", src: "assets/audio/janice.mp3" },
+
     ];
 
     // --- 2. Build the UI ---

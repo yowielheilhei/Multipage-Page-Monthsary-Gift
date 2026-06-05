@@ -1,0 +1,129 @@
+/* Background setup for the page */
+body {
+    background: linear-gradient(135deg, #fb85a6 0%, #ffb6c1 50%, #fb85a6 100%);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* Container to center the grid below the nav bar */
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    padding-top: 100px; /* Extra space to clear the fixed top bar */
+    padding-bottom: 40px;
+}
+
+/* CSS Grid Layout */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 equal columns */
+    gap: 15px; /* Space between the photo blocks */
+    width: 100%;
+    max-width: 500px; /* Controls the maximum width of the gallery */
+}
+
+/* Base style for every gray placeholder box */
+.grid-item {
+    background-color: #d8d8d8; /* Light gray placeholder color */
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Soft drop shadow */
+    min-height: 160px; /* Standard height for the smaller squares */
+    overflow: hidden; /* Ensures images don't break the rounded corners */
+    position: relative;
+}
+
+/* Specific layout overrides based on your mockup */
+
+/* The top right box that is taller */
+.item-tall {
+    grid-row: span 2; /* Spans across 2 rows vertically */
+}
+
+/* The middle box that spans all the way across */
+.item-wide {
+    grid-column: span 2; /* Spans across 2 columns horizontally */
+    min-height: 200px; /* Slightly taller than the base squares */
+}
+
+/* Optional: Styling for when you add real <img> tags inside the divs later */
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fills the box without stretching */
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease;
+}
+
+/* Optional: Adds a slight zoom effect when you hover over a photo */
+.grid-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Make gallery images look clickable (changes mouse to a pointer) */
+.grid-item img {
+    cursor: pointer;
+}
+
+/* --- Fullscreen Image Modal Styling --- */
+.gallery-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7); /* Dark background */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.gallery-modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* The Popup Image */
+.gallery-modal-img {
+    max-width: 90%;
+    max-height: 85vh; /* Prevents it from being taller than the screen */
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    
+    /* Starts slightly smaller for a pop animation */
+    transform: scale(0.8);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.gallery-modal-overlay.show .gallery-modal-img {
+    transform: scale(1);
+}
+
+/* The Close 'X' Button */
+.gallery-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fb85a6; /* Matches your pink theme */
+    font-size: 45px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: color 0.3s;
+    z-index: 2001;
+}
+
+.gallery-close-btn:hover {
+    color: white;
+}

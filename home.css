@@ -1,0 +1,77 @@
+/* Background setup for the page */
+body {
+    /* If you have a specific background image of pink balloons, replace the gradient with:
+       background-image: url('your-background.jpg'); */
+    background: linear-gradient(135deg, #fb85a6 0%, #ffb6c1 50%, #fb85a6 100%);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* Container to center the main content below the nav bar */
+.home-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    /* Adds extra space so the fixed top bar doesn't cover the content */
+    padding-top: 40px; 
+    padding-bottom: 40px;
+}
+
+/* The large frosted glass card */
+.glass-content-card {
+    width: 100%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.15); /* Slightly transparent white */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    
+    /* The blur effect */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* The gray box placeholder for an image */
+.image-placeholder {
+    width: 100%;
+    height: 350px;
+    background-color: rgba(211, 211, 211, 0.8);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* If you add an image inside the placeholder later, it will fit nicely */
+.image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Text styling */
+.text-section {
+    color: white;
+    text-align: center;
+}
+
+.text-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+}
+
+.text-section p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    text-align: justify; /* Aligns text cleanly on left and right like your image */
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
+    opacity: 0.95;
+}

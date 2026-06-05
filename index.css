@@ -1,0 +1,161 @@
+/* Reset basic styles */
+/* Import Poppins from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Reset basic styles and apply Poppins globally */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body, html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Blurred background image */
+/* Blurred background image */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Change 'your-image-filename.jpg' to the actual name of your image file */
+    background-image: linear-gradient(rgba(139, 21, 56, 0.4), rgba(139, 21, 56, 0.4)), url('assets/images/index/bgst.jfif'); 
+    
+    background-size: cover;
+    background-position: center;
+    filter: blur(12px);
+    transform: scale(1.1); /* Hides the white edges created by the blur filter */
+    z-index: -1;
+}
+
+/* Glassmorphism Card Effect */
+.glass-card {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    padding: 40px;
+    width: 320px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+/* Hyperlink Wrapper & Floating Animation */
+.envelope-link {
+    text-decoration: none;
+    display: block;
+    margin-bottom: 25px;
+    animation: float 3s ease-in-out infinite;
+    transition: transform 0.3s ease;
+}
+
+/* Pause float and slightly enlarge on hover */
+.envelope-link:hover {
+    transform: scale(1.05);
+    animation-play-state: paused;
+}
+
+/* CSS Envelope Construction */
+.envelope-wrapper {
+    position: relative;
+    width: 180px;
+    height: 120px;
+    background: #f4e1c1; /* Envelope paper color */
+    border-radius: 4px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Top flap */
+.envelope-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top: 65px solid #e3ccaa;
+    border-left: 90px solid transparent;
+    border-right: 90px solid transparent;
+    z-index: 2;
+    transform-origin: top;
+    transition: transform 0.5s ease-in-out; /* For opening animation */
+}
+
+/* Side and bottom flaps */
+.envelope-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-bottom: 60px solid #fdf1db;
+    border-left: 90px solid #ecd5b1;
+    border-right: 90px solid #ecd5b1;
+    z-index: 1;
+}
+
+/* Wax Seal Construction */
+.wax-seal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 45px;
+    height: 45px;
+    background: #9b1b22;
+    border-radius: 50%;
+    z-index: 3;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.6), 0 4px 6px rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+}
+
+/* Heart inside the wax seal */
+.wax-seal::before {
+    content: '♥';
+    color: #63080e;
+    font-size: 24px;
+    text-shadow: 1px 1px 1px rgba(255,255,255,0.2);
+}
+
+/* Text Styling */
+.click-text {
+    color: #ffffff;
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Floating Keyframes */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
+}
+
+/* --- JS Triggered Opening Animations --- */
+.envelope-link.open .envelope-wrapper::before {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+.envelope-link.open .wax-seal {
+    opacity: 0;
+}

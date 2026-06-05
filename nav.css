@@ -1,0 +1,175 @@
+/* Import a serif font for the logo and headings */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
+
+/* Import Poppins for the rest of the website */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Apply Poppins to everything on the page by default */
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Basic reset for nav elements */
+.yunky-nav-container * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* (Leave the rest of your nav.css exactly the same below this!) */
+/* Top Navigation Bar */
+.yunky-top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #fb85a6; /* Main pink color */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* YUNKY Logo */
+.yunky-logo {
+    font-family: 'Playfair Display', serif;
+    color: white;
+    font-size: 24px;
+    letter-spacing: 2px;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-left: auto; /* Pushes logo to the right */
+}
+
+/* Hamburger Menu Button */
+.yunky-menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 18px;
+    cursor: pointer;
+    z-index: 1002;
+}
+
+.yunky-menu-btn span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: white;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+/* Sidebar Menu */
+.yunky-sidebar {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    width: 280px;
+    height: 50vh;
+    /* More transparent gradient to let the background video/image show through */
+    background: linear-gradient(180deg, rgba(251, 133, 166, 0.4) 0%, rgba(255, 255, 255, 0.2) 100%);
+    
+    /* Stronger glass blur */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    
+    /* Adds a glassy highlight to the edge */
+    border-right: 1px solid rgba(255, 255, 255, 0.4); 
+    
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    z-index: 1001;
+    transition: left 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    padding-top: 100px;
+    box-shadow: 5px 0 20px rgba(0,0,0,0.1);
+}
+
+/* Class added by JS to slide the menu in */
+.yunky-sidebar.open {
+    left: 0;
+}
+
+/* Navigation Links */
+.yunky-nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.yunky-nav-links li {
+    width: 100%;
+    text-align: center;
+}
+
+.yunky-nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    
+    /* Changed: Smaller top/bottom padding makes the pill shorter */
+    padding: 5px 22px; 
+    
+    border-radius: 30px;
+    border: 1.5px solid transparent; /* Prevents text from jumping when border appears */
+    transition: all 0.3s ease;
+    text-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+    display: inline-block;
+}
+
+/* Active Link Styling (The outlined glass pill shape) */
+.yunky-nav-links a.active,
+.yunky-nav-links a:hover {
+    border: 1.5px solid rgba(255, 255, 255, 0.8); /* Crisper white border */
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white fill */
+    
+    /* Adds a mini glass effect specifically to the button */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Soft drop shadow */
+}
+
+/* Background overlay when menu is open */
+.yunky-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.1);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.yunky-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Add padding to the body so content isn't hidden under the fixed top bar */
+body {
+    padding-top: 70px; 
+}
+
+/* --- Full Screen Background Video --- */
+.yunky-bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; /* Keeps aspect ratio and fills screen without stretching */
+    z-index: -1;       /* Places it behind all text and glass cards */
+    pointer-events: none; /* Allows clicks to pass through it so buttons still work */
+}

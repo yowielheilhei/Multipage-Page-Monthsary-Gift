@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // --- 1. Your Song Data ---
     const playlist = [
+        { title: "Tangerine Boulevard", artist: "Yowie", cover: "assets/images/song/album cover.jfif", src: "assets/audio/Tg.mp3" },
         { title: "Ako'y Sayo", artist: "Yowie", cover: "assets/images/song/album cover.jfif", src: "assets/audio/Akoy_sayo.mp3" },
         { title: "Best Part", artist: "Yowie", cover: "assets/images/song/album cover.jfif", src: "assets/audio/bestpart.mp3" },
         { title: "Tibok", artist: "Yowie", cover: "assets/images/song/album cover.jfif", src: "assets/audio/tibok.mp3" },
